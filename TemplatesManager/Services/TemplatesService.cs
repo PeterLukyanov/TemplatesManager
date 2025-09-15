@@ -86,6 +86,15 @@ public class TemplatesService
             return Result.Failure<byte[]>("There is no such template");
         }
 
+        if (data == null || data.Count == 0)
+            return Result.Failure<byte[]>("JSON data is empty");
+
+        foreach (var kv in data)
+        {
+            if (string.IsNullOrWhiteSpace(kv.Value))
+                return Result.Failure<byte[]>($"Field \"{kv.Key}\" is empty");
+        }
+
         string templateContent = templateExist.Content;
         foreach (var pair in data)
         {
