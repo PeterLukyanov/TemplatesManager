@@ -1,0 +1,6 @@
+@TemplatesManager_HostAddress = http://localhost:5048
+
+GET {{TemplatesManager_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
