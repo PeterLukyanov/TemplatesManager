@@ -20,6 +20,13 @@ builder.Services.AddScoped<TemplatesService>();
 
 var app = builder.Build();
 
+// Use migrations and create database, if it does not exist(I create this for SQL in container)
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<TemplatesDb>();
+    dbContext.Database.Migrate();
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

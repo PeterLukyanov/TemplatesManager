@@ -113,13 +113,16 @@ public class TemplatesService
             return Result.Failure<byte[]>("Not all fields are filled in");
         }
 
+        var launchOptions = new LaunchOptions
+        {
+            Headless = true,
+            Args = new[] { "--no-sandbox", "--disable-setuid-sandbox" } 
+        };
+
         var browserFetcher = new BrowserFetcher();
         await browserFetcher.DownloadAsync();
 
-        using var browser = await Puppeteer.LaunchAsync(new LaunchOptions
-        {
-            Headless = true
-        });
+        using var browser = await Puppeteer.LaunchAsync(launchOptions);
         using var page = await browser.NewPageAsync();
 
         await page.SetContentAsync(templateContent);
