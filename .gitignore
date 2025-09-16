@@ -1,0 +1,7 @@
+# PuppeteerSharp 
+TemplatesManager/bin/Debug/net9.0/Chrome/
+TemplatesManager/bin/Debug/net9.0/ChromeHeadlessShell/
+
+# Compilation
+TemplatesManager/bin/
+TemplatesManager/obj/

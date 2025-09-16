@@ -167,3 +167,4 @@ C:\Users\petrl\OneDrive\Рабочий стол\Обучение коду\Templa
 C:\Users\petrl\OneDrive\Рабочий стол\Обучение коду\TemplatesManager\TemplatesManager\obj\Debug\net9.0\TemplatesManager.genruntimeconfig.cache
 C:\Users\petrl\OneDrive\Рабочий стол\Обучение коду\TemplatesManager\TemplatesManager\obj\Debug\net9.0\ref\TemplatesManager.dll
 C:\Users\petrl\OneDrive\Рабочий стол\Обучение коду\TemplatesManager\TemplatesManager\bin\Debug\net9.0\PuppeteerSharp.dll
+C:\Users\petrl\OneDrive\Рабочий стол\Обучение коду\TemplatesManager\TemplatesManager\obj\Debug\net9.0\TemplatesManager.sourcelink.json
