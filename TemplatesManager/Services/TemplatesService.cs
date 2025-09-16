@@ -5,6 +5,7 @@ using CSharpFunctionalExtensions;
 using Microsoft.EntityFrameworkCore;
 using PuppeteerSharp;
 using PuppeteerSharp.Media;
+using System.Text.RegularExpressions;
 
 namespace Services;
 
@@ -96,9 +97,20 @@ public class TemplatesService
         }
 
         string templateContent = templateExist.Content;
+
+
         foreach (var pair in data)
         {
             templateContent = templateContent.Replace($"{{{{{pair.Key}}}}}", pair.Value);
+        }
+
+        var placeholdersLeft = Regex.Matches(templateContent, @"{{(.*?)}}")
+                             .Select(m => m.Groups[1].Value)
+                             .Distinct();
+
+        if (placeholdersLeft.Any())
+        {
+            return Result.Failure<byte[]>("Not all fields are filled in");
         }
 
         var browserFetcher = new BrowserFetcher();
